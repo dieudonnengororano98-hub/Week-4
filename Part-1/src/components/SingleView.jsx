@@ -1,5 +1,5 @@
-
 import PropTypes from 'prop-types';
+import { useLocation, useNavigate } from 'react-router';
 
 const SingleView = (props) => {
   const {item, setSelectedItem} = props;
@@ -9,6 +9,7 @@ const SingleView = (props) => {
   }
 
   return (
+
     <dialog open={item !== null}>
       <h2>{item.title}</h2>
 
