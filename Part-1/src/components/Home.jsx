@@ -1,8 +1,10 @@
 
 import MediaRow from './MediaRow';
+import SingleView from './SingleView';
 
-const Home = () => {
+const Home = () =>  { 
   const mediaArray = [
+
     {
       media_id: 8,
       user_id: 5,
@@ -71,4 +73,3 @@ const Home = () => {
 };
 
 export default Home;
-
