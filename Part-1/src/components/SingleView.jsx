@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import { useLocation, useNavigate } from 'react-router';
 
 const SingleView = (props) => {
@@ -14,6 +15,7 @@ const SingleView = (props) => {
       <h2>{item.title}</h2>
 
       <p>{item.description}</p>
+      <p><strong>Owner:</strong> {item.username}</p>
 
       {item.media_type.startsWith('image') ? (
         <img src={item.filename} alt={item.title} />

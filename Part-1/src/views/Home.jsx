@@ -6,19 +6,33 @@ import { fetchData } from "../utils/fetchData";
 const Home = () =>  { 
 
   const [mediaArray, setMediaArray] = useState([]);
+  const getMedia = async () => {
+  try {
+    const media = await fetchData(import.meta.env.VITE_MEDIA_API + "/media");
 
-const getMedia = async () => {
-  const json = await fetchData("test.json");
-  setMediaArray(json);
+        const newArray = await Promise.all(
+      media.map(async (item) => {
+        const result = await fetchData(
+          import.meta.env.VITE_AUTH_API + "/users/" + item.user_id
+        );
+
+        return {
+          ...item,
+          username: result.username,
+        };
+      })
+    );
+
+    setMediaArray(newArray);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 useEffect(() => {
   getMedia();
 }, []);
 
-useEffect(() => {
-  console.log(mediaArray);
-}, [mediaArray]);
 
   return (
     <>
@@ -33,6 +47,8 @@ useEffect(() => {
             <th>Created</th>
             <th>Size</th>
             <th>Type</th>
+             <th>Owner</th>
+             <th>Action</th>  
           </tr>
         </thead>
 
