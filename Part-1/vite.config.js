@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/~dieudonn@metropolia.fi/routing/',
+  base: '/~dieudonn/wsk-routing/',
 });
