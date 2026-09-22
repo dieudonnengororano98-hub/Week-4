@@ -6,7 +6,7 @@ import Single from "./views/Single";
 import Layout from "./components/Layout";
 import Login from "./views/Login";
 import Logout from "./views/Logout";
-import {UserProvider} from './contexts/UserContext';
+import { UserProvider } from './contexts/UserContext';
 import ProtectedRoute from "./components/ProtectedRoute";
 
 
