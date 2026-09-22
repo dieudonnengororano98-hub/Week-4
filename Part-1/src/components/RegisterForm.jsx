@@ -25,7 +25,8 @@ const RegisterForm = () => {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit}>
+    <div>
       <input
         type="text"
         name="username"
@@ -33,7 +34,9 @@ const RegisterForm = () => {
         value={inputs.username}
         onChange={handleInputChange}
       />
+    </div>
 
+    <div>
       <input
         type="email"
         name="email"
@@ -41,7 +44,9 @@ const RegisterForm = () => {
         value={inputs.email}
         onChange={handleInputChange}
       />
+    </div>
 
+    <div>
       <input
         type="password"
         name="password"
@@ -49,10 +54,15 @@ const RegisterForm = () => {
         value={inputs.password}
         onChange={handleInputChange}
       />
+    </div>
 
+    <div>
       <button type="submit">Register</button>
-    </form>
-  );
+    </div>
+  </form>
+);
 };
+
+
 
 export default RegisterForm;

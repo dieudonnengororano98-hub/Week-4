@@ -3,54 +3,50 @@ import { useForm } from "../hooks/formHooks";
 import { useAuthentication } from "../hooks/apiHooks";
 
 const LoginForm = () => {
-  const navigate = useNavigate();
-  const { postLogin } = useAuthentication();
 
   const initValues = {
-    username: "",
-    password: "",
-  };
+   username: '',
+   password: '',
+};
 
-  const doLogin = async () => {
-    try {
-      const result = await postLogin(inputs);
+const doLogin = () => {
+  console.log(inputs);
+  // TODO: add login functionalities here
+};
 
-      localStorage.setItem("token", result.token);
+const {inputs, handleInputChange, handleSubmit} = useForm(doLogin, initValues);
 
-      console.log(result);
+console.log(inputs);
 
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
-  const { inputs, handleInputChange, handleSubmit } = useForm(
-    doLogin,
-    initValues
-  );
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        value={inputs.username}
-        onChange={handleInputChange}
-      />
-
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={inputs.password}
-        onChange={handleInputChange}
-      />
-
-      <button type="submit">Login</button>
-    </form>
-  );
+     return (
+         <>
+             <h1>Login</h1>
+             <form onSubmit={ () => {} }>
+                  <div>
+                      <label htmlFor="loginess">Username</label>
+                     <input
+                         name="username"
+                         type="text"
+                         id="loginess"
+                         onChange={ () => {} }
+                         autoComplete="username"
+                     />
+                 </div>
+                 <div>
+                     <label htmlFor="loginpassword">Password</label>
+                      <input
+                         name="password"
+                         type="password"
+                         id="loginpassword"
+                         onChange={ () => {} }
+                         autoComplete="current-password"
+                     />
+                 </div>
+                 <button type="submit">Login</button>
+             </form>
+         </>
+     );
 };
 
 export default LoginForm;
