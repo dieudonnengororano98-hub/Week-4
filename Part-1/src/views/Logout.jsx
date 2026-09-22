@@ -1,15 +1,14 @@
-import useState from "react";
-import LoginForm from "../components/LoginForm";
-import RegisterForm from "../components/RegisterForm";
+import { useEffect } from "react";
+import { useUserContext } from "../hooks/contextHooks";
 
-const logout = () => {
-    return(
-        <>
-        <h2>Logout</h2>
-    
+const Logout = () => {
+  const { handleLogout } = useUserContext();
 
-        </>
-    )
-}
+  useEffect(() => {
+    handleLogout();
+  }, []);
 
-export default logout;
+  return <h2>Logging out...</h2>;
+};
+
+export default Logout;

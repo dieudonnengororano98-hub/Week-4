@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { fetchData } from "../utils/fetchData";
 
@@ -43,6 +44,7 @@ const useAuthentication = () => {
       return loginResult;
     } catch (error) {
       console.error(error);
+      throw error;
     }
   };
 
